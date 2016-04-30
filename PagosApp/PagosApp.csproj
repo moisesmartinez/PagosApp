@@ -477,9 +477,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\assets\css\icons\icomoon\.DS_Store" />
-    <None Include="Content\assets\css\icons\icomoon\fonts\icomoon.eot" />
-    <None Include="Content\assets\css\icons\icomoon\fonts\icomoon.ttf" />
-    <None Include="Content\assets\css\icons\icomoon\fonts\icomoon.woff" />
+    <Content Include="Content\assets\css\icons\icomoon\fonts\icomoon.eot" />
+    <Content Include="Content\assets\css\icons\icomoon\fonts\icomoon.ttf" />
+    <Content Include="Content\assets\css\icons\icomoon\fonts\icomoon.woff" />
     <None Include="Content\assets\images\.DS_Store" />
     <None Include="Content\assets\images\flags\.DS_Store" />
     <None Include="Content\assets\images\pnotify\.DS_Store" />
