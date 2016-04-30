@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PagosAppDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="PagosAppDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Roles" EntityType="PagosAppDBModel.Role" />
+    <EntitySet Name="RolesUsuarios" EntityType="PagosAppDBModel.RolesUsuario" />
+    <EntitySet Name="Usuarios" EntityType="PagosAppDBModel.Usuario" />
+    <AssociationSet Name="FK_RolesUsuarios_Roles" Association="PagosAppDBModel.FK_RolesUsuarios_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="RolesUsuarios" EntitySet="RolesUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolesUsuarios_Usuarios" Association="PagosAppDBModel.FK_RolesUsuarios_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="RolesUsuarios" EntitySet="RolesUsuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="descripcion" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="RolesUsuarios" Relationship="PagosAppDBModel.FK_RolesUsuarios_Roles" FromRole="Roles" ToRole="RolesUsuarios" />
+  </EntityType>
+  <EntityType Name="RolesUsuario">
+    <Key>
+      <PropertyRef Name="id_roles_usuarios" />
+    </Key>
+    <Property Name="id_roles_usuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_rol" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="PagosAppDBModel.FK_RolesUsuarios_Roles" FromRole="RolesUsuarios" ToRole="Roles" />
+    <NavigationProperty Name="Usuario" Relationship="PagosAppDBModel.FK_RolesUsuarios_Usuarios" FromRole="RolesUsuarios" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="clave" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="nombre_completo" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="RolesUsuarios" Relationship="PagosAppDBModel.FK_RolesUsuarios_Usuarios" FromRole="Usuarios" ToRole="RolesUsuarios" />
+  </EntityType>
+  <Association Name="FK_RolesUsuarios_Roles">
+    <End Role="Roles" Type="PagosAppDBModel.Role" Multiplicity="1" />
+    <End Role="RolesUsuarios" Type="PagosAppDBModel.RolesUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="RolesUsuarios">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolesUsuarios_Usuarios">
+    <End Role="Usuarios" Type="PagosAppDBModel.Usuario" Multiplicity="1" />
+    <End Role="RolesUsuarios" Type="PagosAppDBModel.RolesUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="RolesUsuarios">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

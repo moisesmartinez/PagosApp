@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- Dashboard content -->
+<div class="row">
+	<div class="col-lg-8">
+
+
+		<!-- Quick stats boxes -->
+		<div class="row">
+			<div class="col-lg-4">
+				<!-- Usuarios de PagosApp -->
+				<div class="panel bg-teal-400">
+					<div class="panel-body">
+						<div class="heading-elements">
+							<ul class="icons-list">
+							    <li><a href="@Url.Action("Logout", "Account")"><i class="icon-arrow-right8"></i></a></li>
+							</ul>
+						</div>
+						                	
+						<h3 class="no-margin">Gestión de Usuarios</h3>
+						<br />
+						<div class="text-muted text-size-small">Usuarios de PagosApp</div>
+					</div>
+
+					<div class="container-fluid">
+						<div id="members-online"></div>
+					</div>
+				</div>
+				<!-- /Usuarios de PagosApp -->
+			</div>
+
+			<div class="col-lg-4">
+				<!-- Clientes de Socios Caceenp -->
+				<div class="panel bg-purple-400">
+					<div class="panel-body">
+						<div class="heading-elements">
+							<ul class="icons-list">
+							    <li><a href="@Url.Action("Logout", "Account")"><i class="icon-arrow-right8"></i></a></li>
+							</ul>
+						</div>
+
+						<h3 class="no-margin">Gestión de Clientes</h3>
+						<br />
+						<div class="text-muted text-size-small">Clientes de los socios de Caceenp</div>
+					</div>
+
+					<div id="today-revenue"></div>
+				</div>
+				<!-- /Clientes de Socios Caceenp -->
+			</div>
+
+
+		</div>
+		<!-- /quick stats boxes -->
+
+	</div>
+
+
+</div>
+<!-- /dashboard content -->

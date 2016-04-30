@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PagosAppDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="PagosAppDBModelStoreContainer">
+    <EntitySet Name="Roles" EntityType="PagosAppDBModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RolesUsuarios" EntityType="PagosAppDBModel.Store.RolesUsuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios" EntityType="PagosAppDBModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_RolesUsuarios_Roles" Association="PagosAppDBModel.Store.FK_RolesUsuarios_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="RolesUsuarios" EntitySet="RolesUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolesUsuarios_Usuarios" Association="PagosAppDBModel.Store.FK_RolesUsuarios_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="RolesUsuarios" EntitySet="RolesUsuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_rol" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="RolesUsuarios">
+    <Key>
+      <PropertyRef Name="id_roles_usuarios" />
+    </Key>
+    <Property Name="id_roles_usuarios" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_rol" Type="int" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="clave" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="nombre_completo" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_RolesUsuarios_Roles">
+    <End Role="Roles" Type="PagosAppDBModel.Store.Roles" Multiplicity="1" />
+    <End Role="RolesUsuarios" Type="PagosAppDBModel.Store.RolesUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="RolesUsuarios">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolesUsuarios_Usuarios">
+    <End Role="Usuarios" Type="PagosAppDBModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="RolesUsuarios" Type="PagosAppDBModel.Store.RolesUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="RolesUsuarios">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

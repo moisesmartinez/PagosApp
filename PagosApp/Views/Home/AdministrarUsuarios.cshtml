@@ -1,0 +1,40 @@
+﻿@model PagosApp.Models.UserList
+
+@{
+    ViewBag.Title = "AdministrarUsuarios";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- Basic table -->
+<div class="panel panel-flat">
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th>Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Kopyov</td>
+                    <td>admin</td>
+                    <td>Administrador Caceenp</td>
+                    <td><button type="button" class="btn btn-default"><i class="icon-pencil5 position-left"></i> Editar</button></td>
+                </tr>
+                <tr>
+                    <td>Vicky</td>
+                    <td>Victoria</td>
+                    <td>Activo</td>
+                    <td><button type="button" class="btn btn-default"><i class="icon-pencil5 position-left"></i> Editar</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /basic table -->

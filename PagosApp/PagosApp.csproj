@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{844A870A-1444-4B8B-84CA-4F3AC7DC1A83}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PagosApp</RootNamespace>
+    <AssemblyName>PagosApp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="PagosAppDbCG.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PagosAppDbCG.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PagosAppDbCG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PagosAppDbCG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PagosAppEDM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PagosAppEDM.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>PagosAppDbCG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RolesUsuario.cs">
+      <DependentUpon>PagosAppDbCG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>PagosAppDbCG.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\PagosAppDB.mdf" />
+    <Content Include="App_Data\PagosAppDB_log.ldf">
+      <DependentUpon>PagosAppDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\core.css" />
+    <Content Include="Content\assets\css\bootstrap.css" />
+    <Content Include="Content\assets\css\colors.css" />
+    <Content Include="Content\assets\css\components.css" />
+    <Content Include="Content\assets\css\icons\icomoon\fonts\icomoon.svg" />
+    <Content Include="Content\assets\css\icons\icomoon\styles.css" />
+    <Content Include="Content\assets\images\backgrounds\boxed_bg.png" />
+    <Content Include="Content\assets\images\backgrounds\boxed_bg_retina.png" />
+    <Content Include="Content\assets\images\cover.jpg" />
+    <Content Include="Content\assets\images\flags\ad.png" />
+    <Content Include="Content\assets\images\flags\ae.png" />
+    <Content Include="Content\assets\images\flags\af.png" />
+    <Content Include="Content\assets\images\flags\ag.png" />
+    <Content Include="Content\assets\images\flags\ai.png" />
+    <Content Include="Content\assets\images\flags\al.png" />
+    <Content Include="Content\assets\images\flags\am.png" />
+    <Content Include="Content\assets\images\flags\an.png" />
+    <Content Include="Content\assets\images\flags\ao.png" />
+    <Content Include="Content\assets\images\flags\ar.png" />
+    <Content Include="Content\assets\images\flags\as.png" />
+    <Content Include="Content\assets\images\flags\at.png" />
+    <Content Include="Content\assets\images\flags\au.png" />
+    <Content Include="Content\assets\images\flags\aw.png" />
+    <Content Include="Content\assets\images\flags\ax.png" />
+    <Content Include="Content\assets\images\flags\az.png" />
+    <Content Include="Content\assets\images\flags\ba.png" />
+    <Content Include="Content\assets\images\flags\bb.png" />
+    <Content Include="Content\assets\images\flags\bd.png" />
+    <Content Include="Content\assets\images\flags\be.png" />
+    <Content Include="Content\assets\images\flags\bf.png" />
+    <Content Include="Content\assets\images\flags\bg.png" />
+    <Content Include="Content\assets\images\flags\bh.png" />
+    <Content Include="Content\assets\images\flags\bi.png" />
+    <Content Include="Content\assets\images\flags\bj.png" />
+    <Content Include="Content\assets\images\flags\bm.png" />
+    <Content Include="Content\assets\images\flags\bn.png" />
+    <Content Include="Content\assets\images\flags\bo.png" />
+    <Content Include="Content\assets\images\flags\br.png" />
+    <Content Include="Content\assets\images\flags\bs.png" />
+    <Content Include="Content\assets\images\flags\bt.png" />
+    <Content Include="Content\assets\images\flags\bv.png" />
+    <Content Include="Content\assets\images\flags\bw.png" />
+    <Content Include="Content\assets\images\flags\by.png" />
+    <Content Include="Content\assets\images\flags\bz.png" />
+    <Content Include="Content\assets\images\flags\ca.png" />
+    <Content Include="Content\assets\images\flags\catalonia.png" />
+    <Content Include="Content\assets\images\flags\cc.png" />
+    <Content Include="Content\assets\images\flags\cd.png" />
+    <Content Include="Content\assets\images\flags\cf.png" />
+    <Content Include="Content\assets\images\flags\cg.png" />
+    <Content Include="Content\assets\images\flags\ch.png" />
+    <Content Include="Content\assets\images\flags\ci.png" />
+    <Content Include="Content\assets\images\flags\ck.png" />
+    <Content Include="Content\assets\images\flags\cl.png" />
+    <Content Include="Content\assets\images\flags\cm.png" />
+    <Content Include="Content\assets\images\flags\cn.png" />
+    <Content Include="Content\assets\images\flags\co.png" />
+    <Content Include="Content\assets\images\flags\cr.png" />
+    <Content Include="Content\assets\images\flags\cs.png" />
+    <Content Include="Content\assets\images\flags\cu.png" />
+    <Content Include="Content\assets\images\flags\cv.png" />
+    <Content Include="Content\assets\images\flags\cx.png" />
+    <Content Include="Content\assets\images\flags\cy.png" />
+    <Content Include="Content\assets\images\flags\cz.png" />
+    <Content Include="Content\assets\images\flags\de.png" />
+    <Content Include="Content\assets\images\flags\dj.png" />
+    <Content Include="Content\assets\images\flags\dk.png" />
+    <Content Include="Content\assets\images\flags\dm.png" />
+    <Content Include="Content\assets\images\flags\do.png" />
+    <Content Include="Content\assets\images\flags\dz.png" />
+    <Content Include="Content\assets\images\flags\ec.png" />
+    <Content Include="Content\assets\images\flags\ee.png" />
+    <Content Include="Content\assets\images\flags\eg.png" />
+    <Content Include="Content\assets\images\flags\eh.png" />
+    <Content Include="Content\assets\images\flags\england.png" />
+    <Content Include="Content\assets\images\flags\er.png" />
+    <Content Include="Content\assets\images\flags\es.png" />
+    <Content Include="Content\assets\images\flags\et.png" />
+    <Content Include="Content\assets\images\flags\europeanunion.png" />
+    <Content Include="Content\assets\images\flags\fam.png" />
+    <Content Include="Content\assets\images\flags\fi.png" />
+    <Content Include="Content\assets\images\flags\fj.png" />
+    <Content Include="Content\assets\images\flags\fk.png" />
+    <Content Include="Content\assets\images\flags\fm.png" />
+    <Content Include="Content\assets\images\flags\fo.png" />
+    <Content Include="Content\assets\images\flags\fr.png" />
+    <Content Include="Content\assets\images\flags\ga.png" />
+    <Content Include="Content\assets\images\flags\gb.png" />
+    <Content Include="Content\assets\images\flags\gd.png" />
+    <Content Include="Content\assets\images\flags\ge.png" />
+    <Content Include="Content\assets\images\flags\gf.png" />
+    <Content Include="Content\assets\images\flags\gh.png" />
+    <Content Include="Content\assets\images\flags\gi.png" />
+    <Content Include="Content\assets\images\flags\gl.png" />
+    <Content Include="Content\assets\images\flags\gm.png" />
+    <Content Include="Content\assets\images\flags\gn.png" />
+    <Content Include="Content\assets\images\flags\gp.png" />
+    <Content Include="Content\assets\images\flags\gq.png" />
+    <Content Include="Content\assets\images\flags\gr.png" />
+    <Content Include="Content\assets\images\flags\gs.png" />
+    <Content Include="Content\assets\images\flags\gt.png" />
+    <Content Include="Content\assets\images\flags\gu.png" />
+    <Content Include="Content\assets\images\flags\gw.png" />
+    <Content Include="Content\assets\images\flags\gy.png" />
+    <Content Include="Content\assets\images\flags\hk.png" />
+    <Content Include="Content\assets\images\flags\hm.png" />
+    <Content Include="Content\assets\images\flags\hn.png" />
+    <Content Include="Content\assets\images\flags\hr.png" />
+    <Content Include="Content\assets\images\flags\ht.png" />
+    <Content Include="Content\assets\images\flags\hu.png" />
+    <Content Include="Content\assets\images\flags\id.png" />
+    <Content Include="Content\assets\images\flags\ie.png" />
+    <Content Include="Content\assets\images\flags\il.png" />
+    <Content Include="Content\assets\images\flags\in.png" />
+    <Content Include="Content\assets\images\flags\io.png" />
+    <Content Include="Content\assets\images\flags\iq.png" />
+    <Content Include="Content\assets\images\flags\ir.png" />
+    <Content Include="Content\assets\images\flags\is.png" />
+    <Content Include="Content\assets\images\flags\it.png" />
+    <Content Include="Content\assets\images\flags\jm.png" />
+    <Content Include="Content\assets\images\flags\jo.png" />
+    <Content Include="Content\assets\images\flags\jp.png" />
+    <Content Include="Content\assets\images\flags\ke.png" />
+    <Content Include="Content\assets\images\flags\kg.png" />
+    <Content Include="Content\assets\images\flags\kh.png" />
+    <Content Include="Content\assets\images\flags\ki.png" />
+    <Content Include="Content\assets\images\flags\km.png" />
+    <Content Include="Content\assets\images\flags\kn.png" />
+    <Content Include="Content\assets\images\flags\kp.png" />
+    <Content Include="Content\assets\images\flags\kr.png" />
+    <Content Include="Content\assets\images\flags\kw.png" />
+    <Content Include="Content\assets\images\flags\ky.png" />
+    <Content Include="Content\assets\images\flags\kz.png" />
+    <Content Include="Content\assets\images\flags\la.png" />
+    <Content Include="Content\assets\images\flags\lb.png" />
+    <Content Include="Content\assets\images\flags\lc.png" />
+    <Content Include="Content\assets\images\flags\li.png" />
+    <Content Include="Content\assets\images\flags\lk.png" />
+    <Content Include="Content\assets\images\flags\lr.png" />
+    <Content Include="Content\assets\images\flags\ls.png" />
+    <Content Include="Content\assets\images\flags\lt.png" />
+    <Content Include="Content\assets\images\flags\lu.png" />
+    <Content Include="Content\assets\images\flags\lv.png" />
+    <Content Include="Content\assets\images\flags\ly.png" />
+    <Content Include="Content\assets\images\flags\ma.png" />
+    <Content Include="Content\assets\images\flags\mc.png" />
+    <Content Include="Content\assets\images\flags\md.png" />
+    <Content Include="Content\assets\images\flags\me.png" />
+    <Content Include="Content\assets\images\flags\mg.png" />
+    <Content Include="Content\assets\images\flags\mh.png" />
+    <Content Include="Content\assets\images\flags\mk.png" />
+    <Content Include="Content\assets\images\flags\ml.png" />
+    <Content Include="Content\assets\images\flags\mm.png" />
+    <Content Include="Content\assets\images\flags\mn.png" />
+    <Content Include="Content\assets\images\flags\mo.png" />
+    <Content Include="Content\assets\images\flags\mp.png" />
+    <Content Include="Content\assets\images\flags\mq.png" />
+    <Content Include="Content\assets\images\flags\mr.png" />
+    <Content Include="Content\assets\images\flags\ms.png" />
+    <Content Include="Content\assets\images\flags\mt.png" />
+    <Content Include="Content\assets\images\flags\mu.png" />
+    <Content Include="Content\assets\images\flags\mv.png" />
+    <Content Include="Content\assets\images\flags\mw.png" />
+    <Content Include="Content\assets\images\flags\mx.png" />
+    <Content Include="Content\assets\images\flags\my.png" />
+    <Content Include="Content\assets\images\flags\mz.png" />
+    <Content Include="Content\assets\images\flags\na.png" />
+    <Content Include="Content\assets\images\flags\nc.png" />
+    <Content Include="Content\assets\images\flags\ne.png" />
+    <Content Include="Content\assets\images\flags\nf.png" />
+    <Content Include="Content\assets\images\flags\ng.png" />
+    <Content Include="Content\assets\images\flags\ni.png" />
+    <Content Include="Content\assets\images\flags\nl.png" />
+    <Content Include="Content\assets\images\flags\no.png" />
+    <Content Include="Content\assets\images\flags\np.png" />
+    <Content Include="Content\assets\images\flags\nr.png" />
+    <Content Include="Content\assets\images\flags\nu.png" />
+    <Content Include="Content\assets\images\flags\nz.png" />
+    <Content Include="Content\assets\images\flags\om.png" />
+    <Content Include="Content\assets\images\flags\pa.png" />
+    <Content Include="Content\assets\images\flags\pe.png" />
+    <Content Include="Content\assets\images\flags\pf.png" />
+    <Content Include="Content\assets\images\flags\pg.png" />
+    <Content Include="Content\assets\images\flags\ph.png" />
+    <Content Include="Content\assets\images\flags\pk.png" />
+    <Content Include="Content\assets\images\flags\pl.png" />
+    <Content Include="Content\assets\images\flags\pm.png" />
+    <Content Include="Content\assets\images\flags\pn.png" />
+    <Content Include="Content\assets\images\flags\pr.png" />
+    <Content Include="Content\assets\images\flags\ps.png" />
+    <Content Include="Content\assets\images\flags\pt.png" />
+    <Content Include="Content\assets\images\flags\pw.png" />
+    <Content Include="Content\assets\images\flags\py.png" />
+    <Content Include="Content\assets\images\flags\qa.png" />
+    <Content Include="Content\assets\images\flags\re.png" />
+    <Content Include="Content\assets\images\flags\ro.png" />
+    <Content Include="Content\assets\images\flags\rs.png" />
+    <Content Include="Content\assets\images\flags\ru.png" />
+    <Content Include="Content\assets\images\flags\rw.png" />
+    <Content Include="Content\assets\images\flags\sa.png" />
+    <Content Include="Content\assets\images\flags\sb.png" />
+    <Content Include="Content\assets\images\flags\sc.png" />
+    <Content Include="Content\assets\images\flags\scotland.png" />
+    <Content Include="Content\assets\images\flags\sd.png" />
+    <Content Include="Content\assets\images\flags\se.png" />
+    <Content Include="Content\assets\images\flags\sg.png" />
+    <Content Include="Content\assets\images\flags\sh.png" />
+    <Content Include="Content\assets\images\flags\si.png" />
+    <Content Include="Content\assets\images\flags\sj.png" />
+    <Content Include="Content\assets\images\flags\sk.png" />
+    <Content Include="Content\assets\images\flags\sl.png" />
+    <Content Include="Content\assets\images\flags\sm.png" />
+    <Content Include="Content\assets\images\flags\sn.png" />
+    <Content Include="Content\assets\images\flags\so.png" />
+    <Content Include="Content\assets\images\flags\sr.png" />
+    <Content Include="Content\assets\images\flags\st.png" />
+    <Content Include="Content\assets\images\flags\sv.png" />
+    <Content Include="Content\assets\images\flags\sy.png" />
+    <Content Include="Content\assets\images\flags\sz.png" />
+    <Content Include="Content\assets\images\flags\tc.png" />
+    <Content Include="Content\assets\images\flags\td.png" />
+    <Content Include="Content\assets\images\flags\tf.png" />
+    <Content Include="Content\assets\images\flags\tg.png" />
+    <Content Include="Content\assets\images\flags\th.png" />
+    <Content Include="Content\assets\images\flags\tj.png" />
+    <Content Include="Content\assets\images\flags\tk.png" />
+    <Content Include="Content\assets\images\flags\tl.png" />
+    <Content Include="Content\assets\images\flags\tm.png" />
+    <Content Include="Content\assets\images\flags\tn.png" />
+    <Content Include="Content\assets\images\flags\to.png" />
+    <Content Include="Content\assets\images\flags\tr.png" />
+    <Content Include="Content\assets\images\flags\tt.png" />
+    <Content Include="Content\assets\images\flags\tv.png" />
+    <Content Include="Content\assets\images\flags\tw.png" />
+    <Content Include="Content\assets\images\flags\tz.png" />
+    <Content Include="Content\assets\images\flags\ua.png" />
+    <Content Include="Content\assets\images\flags\ug.png" />
+    <Content Include="Content\assets\images\flags\um.png" />
+    <Content Include="Content\assets\images\flags\us.png" />
+    <Content Include="Content\assets\images\flags\uy.png" />
+    <Content Include="Content\assets\images\flags\uz.png" />
+    <Content Include="Content\assets\images\flags\va.png" />
+    <Content Include="Content\assets\images\flags\vc.png" />
+    <Content Include="Content\assets\images\flags\ve.png" />
+    <Content Include="Content\assets\images\flags\vg.png" />
+    <Content Include="Content\assets\images\flags\vi.png" />
+    <Content Include="Content\assets\images\flags\vn.png" />
+    <Content Include="Content\assets\images\flags\vu.png" />
+    <Content Include="Content\assets\images\flags\wales.png" />
+    <Content Include="Content\assets\images\flags\wf.png" />
+    <Content Include="Content\assets\images\flags\ws.png" />
+    <Content Include="Content\assets\images\flags\ye.png" />
+    <Content Include="Content\assets\images\flags\yt.png" />
+    <Content Include="Content\assets\images\flags\za.png" />
+    <Content Include="Content\assets\images\flags\zm.png" />
+    <Content Include="Content\assets\images\flags\zw.png" />
+    <Content Include="Content\assets\images\logo-caceeno-ORIG.png" />
+    <Content Include="Content\assets\images\LOGO-CACEENP-BLANCO 1.png" />
+    <Content Include="Content\assets\images\LOGO-CACEENP-BLANCO 2.png" />
+    <Content Include="Content\assets\images\LOGO-CACEENP-BLANCO 3.png" />
+    <Content Include="Content\assets\images\logo_dark.png" />
+    <Content Include="Content\assets\images\logo_demo.png" />
+    <Content Include="Content\assets\images\logo_light.png" />
+    <Content Include="Content\assets\images\logo_light_bak.png" />
+    <Content Include="Content\assets\images\logo_light_bak2.png" />
+    <Content Include="Content\assets\images\placeholder.jpg" />
+    <Content Include="Content\assets\images\pnotify\danger.png" />
+    <Content Include="Content\assets\images\pnotify\default.png" />
+    <Content Include="Content\assets\images\pnotify\info.png" />
+    <Content Include="Content\assets\images\pnotify\success.png" />
+    <Content Include="Content\assets\images\pnotify\warning.png" />
+    <Content Include="Content\assets\images\signature.png" />
+    <Content Include="Content\assets\images\ui\datepicker_trigger.png" />
+    <Content Include="Content\assets\images\ui\map_marker.png" />
+    <Content Include="Content\assets\js\core\app.js" />
+    <Content Include="Content\assets\js\core\libraries\bootstrap.min.js" />
+    <Content Include="Content\assets\js\core\libraries\jquery.min.js" />
+    <Content Include="Content\assets\js\plugins\loaders\blockui.min.js" />
+    <Content Include="Content\assets\js\plugins\loaders\pace.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\assets\fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="PagosAppEDM.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PagosAppEDM.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\assets\css\icons\icomoon\.DS_Store" />
+    <None Include="Content\assets\css\icons\icomoon\fonts\icomoon.eot" />
+    <None Include="Content\assets\css\icons\icomoon\fonts\icomoon.ttf" />
+    <None Include="Content\assets\css\icons\icomoon\fonts\icomoon.woff" />
+    <None Include="Content\assets\images\.DS_Store" />
+    <None Include="Content\assets\images\flags\.DS_Store" />
+    <None Include="Content\assets\images\pnotify\.DS_Store" />
+    <None Include="Content\assets\images\ui\.DS_Store" />
+    <None Include="PagosAppDbCG.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PagosAppDbCG.Context.cs</LastGenOutput>
+    </None>
+    <None Include="PagosAppDbCG.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PagosAppDbCG.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\Shared\_SimpleLayout.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\AdministrarUsuarios.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1571</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

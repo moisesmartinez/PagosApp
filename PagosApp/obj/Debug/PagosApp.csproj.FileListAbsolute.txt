@@ -1,0 +1,106 @@
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\PagosApp.dll.config
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\PagosApp.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\PagosApp.pdb
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\Antlr3.Runtime.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\Microsoft.Web.Infrastructure.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\Newtonsoft.Json.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Net.Http.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Net.Http.Formatting.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Net.Http.WebRequest.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Helpers.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Http.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Http.WebHost.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Mvc.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Optimization.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Razor.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.WebPages.Deployment.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.WebPages.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.WebPages.Razor.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\WebGrease.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\Antlr3.Runtime.pdb
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\Newtonsoft.Json.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Optimization.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Net.Http.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Net.Http.Formatting.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Net.Http.WebRequest.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Helpers.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Http.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Http.WebHost.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Mvc.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.Razor.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.WebPages.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.WebPages.Deployment.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\bin\System.Web.WebPages.Razor.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\obj\Debug\PagosApp.csprojResolveAssemblyReference.cache
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\obj\Debug\PagosApp.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\Proyectov2\PagosApp\PagosApp\obj\Debug\PagosApp.pdb
+C:\PagosApp\PagosApp\bin\PagosApp.dll
+C:\PagosApp\PagosApp\bin\PagosApp.pdb
+C:\PagosApp\PagosApp\bin\Antlr3.Runtime.dll
+C:\PagosApp\PagosApp\bin\Microsoft.Web.Infrastructure.dll
+C:\PagosApp\PagosApp\bin\Newtonsoft.Json.dll
+C:\PagosApp\PagosApp\bin\System.Net.Http.dll
+C:\PagosApp\PagosApp\bin\System.Net.Http.Formatting.dll
+C:\PagosApp\PagosApp\bin\System.Net.Http.WebRequest.dll
+C:\PagosApp\PagosApp\bin\System.Web.Helpers.dll
+C:\PagosApp\PagosApp\bin\System.Web.Http.dll
+C:\PagosApp\PagosApp\bin\System.Web.Http.WebHost.dll
+C:\PagosApp\PagosApp\bin\System.Web.Mvc.dll
+C:\PagosApp\PagosApp\bin\System.Web.Optimization.dll
+C:\PagosApp\PagosApp\bin\System.Web.Razor.dll
+C:\PagosApp\PagosApp\bin\System.Web.WebPages.Deployment.dll
+C:\PagosApp\PagosApp\bin\System.Web.WebPages.dll
+C:\PagosApp\PagosApp\bin\System.Web.WebPages.Razor.dll
+C:\PagosApp\PagosApp\bin\WebGrease.dll
+C:\PagosApp\PagosApp\bin\Antlr3.Runtime.pdb
+C:\PagosApp\PagosApp\bin\Newtonsoft.Json.xml
+C:\PagosApp\PagosApp\bin\System.Web.Optimization.xml
+C:\PagosApp\PagosApp\bin\System.Net.Http.xml
+C:\PagosApp\PagosApp\bin\System.Net.Http.Formatting.xml
+C:\PagosApp\PagosApp\bin\System.Net.Http.WebRequest.xml
+C:\PagosApp\PagosApp\bin\System.Web.Helpers.xml
+C:\PagosApp\PagosApp\bin\System.Web.Http.xml
+C:\PagosApp\PagosApp\bin\System.Web.Http.WebHost.xml
+C:\PagosApp\PagosApp\bin\System.Web.Mvc.xml
+C:\PagosApp\PagosApp\bin\System.Web.Razor.xml
+C:\PagosApp\PagosApp\bin\System.Web.WebPages.xml
+C:\PagosApp\PagosApp\bin\System.Web.WebPages.Deployment.xml
+C:\PagosApp\PagosApp\bin\System.Web.WebPages.Razor.xml
+C:\PagosApp\PagosApp\obj\Debug\PagosApp.dll
+C:\PagosApp\PagosApp\obj\Debug\PagosApp.pdb
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\PagosApp.dll.config
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\PagosApp.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\PagosApp.pdb
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\Antlr3.Runtime.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\Microsoft.Web.Infrastructure.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\Newtonsoft.Json.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Net.Http.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Net.Http.Formatting.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Net.Http.WebRequest.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Helpers.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Http.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Http.WebHost.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Mvc.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Optimization.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Razor.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.WebPages.Deployment.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.WebPages.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.WebPages.Razor.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\WebGrease.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\Antlr3.Runtime.pdb
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\Newtonsoft.Json.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Optimization.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Net.Http.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Net.Http.Formatting.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Net.Http.WebRequest.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Helpers.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Http.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Http.WebHost.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Mvc.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.Razor.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.WebPages.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.WebPages.Deployment.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\bin\System.Web.WebPages.Razor.xml
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\obj\Debug\PagosApp.csprojResolveAssemblyReference.cache
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\obj\Debug\PagosApp.dll
+C:\STUFF\Clases de la Maestria\Administracion de Proyectos de SW\PagosAppv5\PagosApp\PagosApp\obj\Debug\PagosApp.pdb
