@@ -10,7 +10,7 @@ namespace PagosApp.Controllers
     {
         PagosAppDBEntities myEntities = new PagosAppDBEntities();
 
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult Index()
         {
             if (Session["UserSession"] != null)
@@ -45,7 +45,7 @@ namespace PagosApp.Controllers
             return View();
         }
 
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult AdministrarUsuarios()
         {
             Models.UserList lita = new Models.UserList();
