@@ -42,16 +42,6 @@ namespace PagosApp.Controllers
 
                     //Luego de guardar informacion en la sesion, redireccionar al menu
                     return RedirectToAction("Index", "Home");    
-
-                    /*string returnUrl = Request["ReturnUrl"];
-                    if (Url.IsLocalUrl(returnUrl))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }*/
                 }
                 else
                 {
@@ -60,7 +50,7 @@ namespace PagosApp.Controllers
             }
             catch (Exception ex)
             {
-
+                ViewData["Error"] = "Error al buscar buscar usuario";
             }
             //Esto es para limpiar el campo de contraseña, para que la vuelva a escribir
             ModelState.Remove("Password");
