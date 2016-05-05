@@ -20,6 +20,13 @@ namespace PagosApp
             //);
 
             //Main page
+
+            routes.MapRoute(
+              name: "User/EditUser",
+              url: "EditUser/{userid}",
+              defaults: new { controller = "User", action = "EditUser", userid = "" }
+              );
+
             routes.MapRoute(
                 name: "Default",
                 url: "",
@@ -44,6 +51,14 @@ namespace PagosApp
                 url: "Logout",
                 defaults: new { controller = "Account", action = "Logout" }
             );
+
+          
+
+            routes.MapRoute(
+                name: "User/AddUser",
+                url: "AddUser",
+                defaults: new { controller = "User", action = "AddUser" }
+                );
 
         }
     }

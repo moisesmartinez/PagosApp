@@ -1,0 +1,53 @@
+﻿@model PagosApp.Models.User
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<script>
+
+   $("#retype").focus(function () {
+       alert("Handler for .focus() called.");
+    });
+
+</script>
+
+<h2>Edit User</h2>
+
+
+    @Model.Usuario
+
+
+    @using (Html.BeginForm("UpdateUser", "User", FormMethod.Post))
+    {
+
+        <fieldset>
+
+            @Html.ValidationSummary(true)
+            @Html.AntiForgeryToken()
+
+
+
+
+            <div>
+                @Html.Label("Nombre: ")
+                @Html.TextBoxFor(model => model.Nombre, new { placeholder = "Nombre", @Value = Model.Nombre})
+
+            </div>
+
+            <div>
+                @Html.Label("Password: ")
+                @Html.TextBoxFor(model => model.Password, new { placeholder = "Password"})
+            </div>
+
+            <div>
+                Reescribir Password: <input type="text" name="fname" placeholder="Reescribir Password" id="retype">
+            </div>
+
+            
+
+
+            <button type="submit">Actualizar </button>
+
+            </fieldset>
+            }

@@ -6,16 +6,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PagosApp.Models
 {
-    public class User 
+
+    public class EditUser
     {
-        public string Nombre { get; set; }
-        public string Usuario { get; set; }
-
-        public string rol { get; set; }
-        public bool Estado { get; set; }
-
         [Required(ErrorMessage = "Password Required", AllowEmptyStrings = false)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [Required(ErrorMessage = "Password Required", AllowEmptyStrings = false)]
+        [DataType(DataType.Password)]
+        public string retypePassword { get; set; }
+
+
     }
 }
