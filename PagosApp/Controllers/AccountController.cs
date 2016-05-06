@@ -12,13 +12,33 @@ namespace PagosApp.Controllers
     {
         PagosAppDBEntities myEntities = new PagosAppDBEntities();
         string cadena = System.Configuration.ConfigurationManager.ConnectionStrings["LocalConnection"].ToString();
+        int id_rol;
 
         [AllowAnonymous]
         public ActionResult Login()
         {
             if (Request.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Home");
+                OleDbConnection cn = new OleDbConnection(cadena);
+                cn.Open();
+                string query = "exec get_rol_usuario " + Session["UserSession"];
+                OleDbCommand cmd = new OleDbCommand(query, cn);
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows){
+
+                    while (reader.Read())
+                    {
+                        id_rol = reader.GetInt32(0);
+                    }
+
+                }
+
+                if (id_rol == 0)
+                {
+
+                    return RedirectToAction("Index", "Home");
+                }
             }
             return View();
         }

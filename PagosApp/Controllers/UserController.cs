@@ -17,14 +17,26 @@ namespace PagosApp.Controllers
         {
 
             string usuario = Server.HtmlEncode(userid);
-           
+            List<SelectListItem> li = new List<SelectListItem>();
+
             OleDbConnection cn = new OleDbConnection(cadena);
             cn.Open();
             string query = "exec sp_getinfo_usuario '"+ usuario +"'";
             var model = new PagosApp.Models.User();
             OleDbCommand cmd = new OleDbCommand(query, cn);
             OleDbDataReader reader = cmd.ExecuteReader();
+            string querylist = "select * from roles";
+            OleDbCommand cmd2 = new OleDbCommand(querylist, cn);
+            OleDbDataReader reader2 = cmd2.ExecuteReader();
 
+            while (reader2.Read())
+            {
+                li.Add(new SelectListItem { Text = reader2.GetString(1), Value = reader2.GetValue(0).ToString() });
+            }
+
+            ViewData["Rol"] = li;
+
+            reader2.Close();
             
             String nombre;
             String rol;
@@ -34,15 +46,24 @@ namespace PagosApp.Controllers
             if (reader.HasRows)
             {
 
+                
+
                 while (reader.Read())
                 {
                     nombre = reader.GetString(0);
+                    ViewData["UserName"] = nombre;
                     Status = reader.GetString(1);
                     rol = reader.GetString(2);
 
                     model.Usuario = usuario;
                     model.Nombre = nombre;
-                    model.rol = Status;
+                    model.rol = rol;
+                    model.id_rol = reader.GetInt32(3);
+
+                    if (Status.Equals("Activo"))
+                    {
+                        model.Estado = true;
+                    }
 
                 }
 
@@ -58,11 +79,49 @@ namespace PagosApp.Controllers
             return View();
         }
 
+        public ActionResult Updateuser()
+        {
 
-        [Authorize]
+            OleDbConnection cn = new OleDbConnection(cadena);
+            //cn.Open();
+
+            RedirectToAction("AdministrarUsuarios", "Home");
+            return View();
+        }
+
+
+        [HttpPost]
         public ActionResult Updateuser(Models.User user)
         {
+
+            if (string.IsNullOrEmpty(user.Nombre))
+            {
+                ModelState.AddModelError("Nombre", "Ingrese Nombre");
+            }
+
+            if (string.IsNullOrEmpty(user.Password))
+            {
+                ModelState.AddModelError("Password", "Ingrese la Contrasena");
+            }
+           
+            if (string.IsNullOrEmpty(user.ConfirmPassword))
+            {
+                ModelState.AddModelError("ConfirmPassword", "Ingrese la Contrasena");
+            }
+
+            if (user.Password != user.ConfirmPassword)
+            {
+                ModelState.AddModelError("ConfirmPassword", "No concuerda");
+            }
+           // OleDbConnection cn = new OleDbConnection(cadena);
+            //cn.Open();
+
+            String name = user.Nombre;
+
+            
+
             return View();
+           
         }
 
     }
