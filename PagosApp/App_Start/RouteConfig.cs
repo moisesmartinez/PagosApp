@@ -60,6 +60,15 @@ namespace PagosApp
                 defaults: new { controller = "User", action = "AddUser" }
                 );
 
+            routes.MapRoute(
+                name: "User/Updateuser",
+                url: "Updateuser",
+                defaults: new { controller = "User", action = "Updateuser" }
+                );
+
+            
+            
+
         }
     }
 }

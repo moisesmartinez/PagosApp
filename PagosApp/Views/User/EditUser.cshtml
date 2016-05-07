@@ -11,9 +11,9 @@
 
 
     @Model.Usuario
+   
 
-
-    @using (Html.BeginForm("Updateuser","User",FormMethod.Post))
+    @using (Html.BeginForm("Updateuser", "User", FormMethod.Post))
     {
 
 
@@ -26,18 +26,21 @@
             </p>
 
 
-
+            <div>
+                @Html.Label("Usuario:")
+                @Html.TextBoxFor(model => model.Usuario, new { @readonly = "readonly", @Value = Model.Usuario})
+            </div>
 
 
             <div>
                @Html.LabelFor(model => model.Nombre)
-                @Html.EditorFor(model => model.Nombre, new { placeholder = "Nombre", @Value = Model.Nombre})
+                @Html.EditorFor(model => model.Nombre, new { placeholder = "Nombre", @Value = Model.Nombre })
                 @Html.ValidationMessageFor(model => model.Nombre)
             </div>
 
             <div>
                 @Html.Label("Password: ")
-                @Html.PasswordFor(model => model.Password, new { placeholder = "Password"})
+                @Html.PasswordFor(model => model.Password, new { placeholder = "Password" })
                 @Html.ValidationMessageFor(model => model.Password)
             </div>
 
@@ -49,19 +52,28 @@
 
             <div>
                 @Html.Label("Activo:")
-                @Html.CheckBoxFor(model => model.Estado,new { @checked = Model.Estado})
+                @Html.CheckBoxFor(model => model.Estado, new { @checked = Model.Estado })
             </div>
 
             <div>
                 @Html.Label("Rol:")
-                @Html.DropDownListFor(model => model.rol, ViewData["Rol"] as List<SelectListItem>,Model.id_rol)
+                @Html.DropDownListFor(model => model.rol, ViewData["Rol"] as List<SelectListItem>)
             </div>
 
 
+           
 
-
-            <button type="submit" >Actualizar </button>
+            <button type="submit" onclick="javascript: return SubmitForm();"  >Actualizar </button>
 
 
     }
 
+<script>
+function SubmitForm() {
+
+var r = confirm("Are you sure you want to submit?");
+  if (r == false) {
+    return false;
+  }
+}
+</script>

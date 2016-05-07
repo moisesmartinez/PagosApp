@@ -11,8 +11,9 @@ namespace PagosApp.Models
     public class User 
     {
         [Required(ErrorMessage = "Nombre Requerido", AllowEmptyStrings = false)]
-        [DisplayName("Nombre")]
+        [DisplayName("Nombre: ")]
         public string Nombre { get; set; }
+        [DisplayName("Usuario: ")]
         public string Usuario { get; set; }
 
         public string rol { get; set; }
@@ -20,12 +21,13 @@ namespace PagosApp.Models
         public int id_rol { get; set; }
         public bool Estado { get; set; }
 
-        [Required(ErrorMessage = "Contrasena requerida", AllowEmptyStrings = false)]
+       
         [DisplayName("Password")]
         public string Password { get; set; }
 
-        [Compare("Password",ErrorMessage = "Passwords deben de coincidir")]
-        [Required(ErrorMessage = "Contrasena requerida", AllowEmptyStrings = false)]
+
+
+        [Compare("Password", ErrorMessage = "Passwords deben de coincidir")]
         [DisplayName("ConfirmPassword")]
         public string ConfirmPassword { get; set; }
     }

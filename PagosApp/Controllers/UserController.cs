@@ -12,6 +12,9 @@ namespace PagosApp.Controllers
         string cadena = System.Configuration.ConfigurationManager.ConnectionStrings["LocalConnection"].ToString();
         //
         // GET: /User/
+
+
+  
         [Authorize]
         public ActionResult Edituser(string userid)
         {
@@ -29,12 +32,15 @@ namespace PagosApp.Controllers
             OleDbCommand cmd2 = new OleDbCommand(querylist, cn);
             OleDbDataReader reader2 = cmd2.ExecuteReader();
 
-            while (reader2.Read())
+            if (reader2.HasRows)
             {
-                li.Add(new SelectListItem { Text = reader2.GetString(1), Value = reader2.GetValue(0).ToString() });
-            }
+                while (reader2.Read())
+                {
+                    li.Add(new SelectListItem { Text = reader2.GetString(1), Value = reader2.GetValue(0).ToString() });
+                }
 
-            ViewData["Rol"] = li;
+                ViewData["Rol"] = li;
+            }
 
             reader2.Close();
             
@@ -68,15 +74,44 @@ namespace PagosApp.Controllers
                 }
 
             }
+            reader.Close();
+            cn.Close();
+            cmd.Dispose();
+            cmd2.Dispose();
 
 
             return View(model);
         }
 
+     
+
+
         [Authorize]
         public ActionResult Adduser()
         {
-            return View();
+
+            OleDbConnection cn = new OleDbConnection(cadena);
+            cn.Open();
+
+            string querylist = "select * from roles";
+            OleDbCommand cmd2 = new OleDbCommand(querylist, cn);
+            OleDbDataReader reader2 = cmd2.ExecuteReader();
+            List<SelectListItem> li = new List<SelectListItem>();
+            Models.User2 u = new Models.User2();
+            while (reader2.Read())
+            {
+                li.Add(new SelectListItem { Text = reader2.GetString(1), Value = reader2.GetValue(0).ToString() });
+            }
+
+            ViewData["Rol"] = li;
+
+            reader2.Close();
+            cmd2.Dispose();
+            cn.Close();
+
+
+
+            return View(u);
         }
 
         public ActionResult Updateuser()
@@ -94,35 +129,77 @@ namespace PagosApp.Controllers
         public ActionResult Updateuser(Models.User user)
         {
 
-            if (string.IsNullOrEmpty(user.Nombre))
-            {
-                ModelState.AddModelError("Nombre", "Ingrese Nombre");
-            }
 
-            if (string.IsNullOrEmpty(user.Password))
-            {
-                ModelState.AddModelError("Password", "Ingrese la Contrasena");
-            }
-           
-            if (string.IsNullOrEmpty(user.ConfirmPassword))
-            {
-                ModelState.AddModelError("ConfirmPassword", "Ingrese la Contrasena");
-            }
-
-            if (user.Password != user.ConfirmPassword)
-            {
-                ModelState.AddModelError("ConfirmPassword", "No concuerda");
-            }
-           // OleDbConnection cn = new OleDbConnection(cadena);
+            //OleDbConnection cn = new OleDbConnection(cadena);
             //cn.Open();
 
-            String name = user.Nombre;
 
+            OleDbConnection cn = new OleDbConnection(cadena);
+            cn.Open();
+            string name = user.Nombre;
+            string password = user.Password;
+            string rol = user.rol;
+            bool deleted = user.Estado;
+            string activo = "";
+                if (deleted)
+            {
+                activo = "0";
+            }
+            else
+            {
+                activo = "1";
+            }
+            int id_rol = Convert.ToInt32(user.rol);
             
+            ViewData["UserName"] = name;
+            string query = "exec sp_editusuario '" + user.Usuario + "','" + name + "','" + password + "'," + activo + "," + id_rol;
+            List<SelectListItem> li = new List<SelectListItem>();
+            ViewData["error"] = "Customer Data Update successfully";
+            string querylist = "select * from roles";
+            OleDbCommand cmd2 = new OleDbCommand(querylist, cn);
+            OleDbDataReader reader2 = cmd2.ExecuteReader();
+            int result = 0;
 
-            return View();
+            OleDbCommand cmd = new OleDbCommand(query, cn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    result = reader.GetInt32(0);
+                }
+            }
+
+            if(result == 1)
+            {
+                ViewData["error"] = "Usuario actualizado Satisfactoriamente";
+            }
+            else
+            {
+                ViewData["error"] = "Error al actualizar Usuario";
+            }
+
+            while (reader2.Read())
+            {
+                li.Add(new SelectListItem { Text = reader2.GetString(1), Value = reader2.GetValue(0).ToString() });
+            }
+
+            ViewData["Rol"] = li;
+
+            reader2.Close();
+
+
+
+
+
+
+            return View(user);
            
         }
+
+        
+       
 
     }
 }
