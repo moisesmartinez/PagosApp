@@ -22,6 +22,18 @@ namespace PagosApp
             //Main page
 
             routes.MapRoute(
+              name: "User/probar",
+              url: "probar",
+              defaults: new { controller = "User", action = "probar" }
+              );
+
+            routes.MapRoute(
+               name: "User/Saveuser",
+               url: "Saveuser",
+               defaults: new { controller = "User", action = "Saveuser" }
+               );
+
+            routes.MapRoute(
               name: "User/EditUser",
               url: "EditUser/{userid}",
               defaults: new { controller = "User", action = "EditUser", userid = "" }
@@ -52,7 +64,7 @@ namespace PagosApp
                 defaults: new { controller = "Account", action = "Logout" }
             );
 
-          
+
 
             routes.MapRoute(
                 name: "User/AddUser",
@@ -60,6 +72,31 @@ namespace PagosApp
                 defaults: new { controller = "User", action = "AddUser" }
                 );
 
+            routes.MapRoute(
+                name: "User/Updateuser",
+                url: "Updateuser",
+                defaults: new { controller = "User", action = "Updateuser" }
+                );
+
+
+            //Service's Routes
+            routes.MapRoute(
+                name: "Service/Index",
+                url: "Services",
+                defaults: new { controller = "Service", action = "Index" }
+            );
+
+            routes.MapRoute(
+              name: "Service/Edit",
+              url: "EditService/{ServiceId}",
+              defaults: new { controller = "Service", action = "EditService", ServiceId = "" }
+            );
+
+            routes.MapRoute(
+                name: "Service/Add",
+                url: "AddService",
+                defaults: new { controller = "Service", action = "AddService" }
+            );
         }
     }
 }

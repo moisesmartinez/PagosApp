@@ -1,0 +1,38 @@
+﻿@model PagosApp.Models.Service
+
+@{
+    ViewBag.Title = "Nuevo Servicio";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="panel panel-flat">
+    <div class="panel-body">
+        @using (Html.BeginForm("AddService", "Service", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <fieldset class="content-group">
+                @Html.ValidationSummary(true)
+
+                <legend class="text-bold">Agregar nuevo Servicio</legend>
+
+                <p>
+                    <span class="label border-left-danger label-striped text-grey">@ViewData["Error"]</span>
+                </p>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Descripcion, "Descripcion:", new { @class = "control-label col-lg-1" })
+                    <div class="col-lg-5">
+                        @Html.TextBoxFor(model => model.Descripcion, new { @Value = Model.Descripcion, @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Descripcion)
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary" name="SubmitButton" value="Add">Agregar </button>
+                </div>
+
+            </fieldset>
+        }
+    </div>
+</div>
+
+
