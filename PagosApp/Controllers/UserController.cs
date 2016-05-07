@@ -50,7 +50,7 @@ namespace PagosApp.Controllers
             String nombre;
             String rol;
             String Status;
-
+            bool deleted;
 
             if (reader.HasRows)
             {
@@ -68,11 +68,8 @@ namespace PagosApp.Controllers
                     model.Nombre = nombre;
                     model.rol = rol;
                     model.id_rol = reader.GetInt32(3);
-
-                    if (Status.Equals("Activo"))
-                    {
-                        model.Estado = true;
-                    }
+                    deleted = reader.GetBoolean(4);
+                    model.Estado = deleted;
 
                 }
 
@@ -116,7 +113,7 @@ namespace PagosApp.Controllers
 
             while (reader3.Read())
             {
-                li_idempresa.Add(new SelectListItem { Text = reader3.GetString(1), Value = reader3.GetValue(1).ToString() });
+                li_idempresa.Add(new SelectListItem { Text = reader3.GetString(1), Value = reader3.GetValue(0).ToString() });
             }
 
             ViewData["id_empresa"] = li_idempresa;
@@ -247,6 +244,35 @@ namespace PagosApp.Controllers
             string query = "exec uspadduser '" + usuario + "','" + nombre + "','" + password + "'," + id_empresa + "," + id_rol;
             OleDbCommand cmd = new OleDbCommand(query, cn);
             OleDbDataReader reader = cmd.ExecuteReader();
+
+
+            List<SelectListItem> li_idempresa = new List<SelectListItem>();
+            string querylist = "select * from roles";
+            OleDbCommand cmd2 = new OleDbCommand(querylist, cn);
+            OleDbDataReader reader2 = cmd2.ExecuteReader();
+            List<SelectListItem> li = new List<SelectListItem>();
+            Models.User2 u = new Models.User2();
+            while (reader2.Read())
+            {
+                li.Add(new SelectListItem { Text = reader2.GetString(1), Value = reader2.GetValue(0).ToString() });
+            }
+
+            ViewData["Rol"] = li;
+
+
+            string queryempresa = "select * from empresas";
+            OleDbCommand cmd3 = new OleDbCommand(queryempresa, cn);
+            OleDbDataReader reader3 = cmd3.ExecuteReader();
+
+            while (reader3.Read())
+            {
+                li_idempresa.Add(new SelectListItem { Text = reader3.GetString(1), Value = reader3.GetValue(0).ToString() });
+            }
+
+            ViewData["id_empresa"] = li_idempresa;
+
+
+
 
             while (reader.Read())
             {

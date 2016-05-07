@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "EditRol";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@model PagosApp.Models.Rol
+
+
+<script src="~/Content/assets/js/core/jquery.validate.js" type="text/javascript"></script>
+<script src="~/Content/assets/js/core/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+
+
+<script>
+    function SubmitForm() {
+
+        var r = confirm("Are you sure you want to submit?");
+        if (r == false) {
+            return false;
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        // Switchery toggle
+        var switchery = document.querySelector('.switch');
+        var init = new Switchery(switchery, { color: '#03A9F4' });
+    });
+</script>
+
+
+
+<div class="panel panel-flat">
+    <div class="panel-body">
+        @using (Html.BeginForm("Updaterol", "Rol", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <fieldset class="content-group">
+                @Html.ValidationSummary(true)
+
+                <legend class="text-bold">Editar Rol</legend>
+
+                <p>
+                    <span class="label border-left-danger label-striped text-grey">@ViewData["Error"]</span>
+                </p>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Descripcion_Rol, "Descripcion:", new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.TextBoxFor(model => model.Descripcion_Rol, new { @Value = Model.Descripcion_Rol, @class = "form-control"})
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Descripcion_Rol)
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Estado:", new { @class = "control-label col-lg-2" })
+                    <label class="checkbox-inline checkbox-switchery switchery-sm switchery-double">
+                        Activo
+                        @Html.CheckBoxFor(model => model.deleted, new { @checked = Model.deleted, @class = "switch" })
+                        Desactivado
+                    </label>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">Actualizar </button>
+                </div>
+
+
+          </fieldset>
+        }
+
+</div>
+</div>

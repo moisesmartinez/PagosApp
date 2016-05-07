@@ -1,0 +1,63 @@
+﻿@model System.Data.DataTable
+@using System.Data;
+@{
+    ViewBag.Title = "AdministrarRoles";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<style>
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+
+@{System.Data.DataRow dtarow = null;}
+
+<!-- Basic table -->
+<div class="panel panel-flat">
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    @foreach (System.Data.DataColumn col in Model.Columns)
+                    {
+                        <th>@col.ColumnName </th>
+
+                    }
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (System.Data.DataRow row in Model.Rows)
+                {
+                    { dtarow = row; }
+                    <tr>
+                        @foreach (DataColumn col in Model.Columns)
+                        {
+                            <td>
+                                @row[col.ColumnName]
+
+                        </td>
+
+                        }
+                        <td>@Html.ActionLink("Editar", "EditRol", "Rol", new { id_rol = dtarow[0].ToString() }, null)</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

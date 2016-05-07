@@ -20,6 +20,23 @@ namespace PagosApp
             //);
 
             //Main page
+            routes.MapRoute(
+        name: "Rol/UpdateRol",
+        url: "UpdateRol",
+        defaults: new { controller = "Rol", action = "Updaterol"}
+        );
+
+            routes.MapRoute(
+          name: "Rol/EditRol",
+          url: "EditRol/{id_rol}",
+          defaults: new { controller = "Rol", action = "Editrol", id_rol = "" }
+          );
+
+            routes.MapRoute(
+              name: "Home/Roles",
+              url: "AdminRoles",
+              defaults: new { controller = "Home", action = "AdministrarRoles" }
+          );
 
             routes.MapRoute(
               name: "User/probar",
