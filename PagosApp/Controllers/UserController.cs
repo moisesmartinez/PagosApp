@@ -21,6 +21,7 @@ namespace PagosApp.Controllers
 
             string usuario = Server.HtmlEncode(userid);
             List<SelectListItem> li = new List<SelectListItem>();
+            
 
             OleDbConnection cn = new OleDbConnection(cadena);
             cn.Open();
@@ -42,7 +43,9 @@ namespace PagosApp.Controllers
                 ViewData["Rol"] = li;
             }
 
-            reader2.Close();
+         
+
+            
             
             String nombre;
             String rol;
@@ -75,10 +78,11 @@ namespace PagosApp.Controllers
 
             }
             reader.Close();
+            cmd.Dispose();
             cn.Close();
             cmd.Dispose();
             cmd2.Dispose();
-
+            
 
             return View(model);
         }
@@ -92,7 +96,7 @@ namespace PagosApp.Controllers
 
             OleDbConnection cn = new OleDbConnection(cadena);
             cn.Open();
-
+            List<SelectListItem> li_idempresa = new List<SelectListItem>();
             string querylist = "select * from roles";
             OleDbCommand cmd2 = new OleDbCommand(querylist, cn);
             OleDbDataReader reader2 = cmd2.ExecuteReader();
@@ -105,9 +109,28 @@ namespace PagosApp.Controllers
 
             ViewData["Rol"] = li;
 
+
+            string queryempresa = "select * from empresas";
+            OleDbCommand cmd3 = new OleDbCommand(queryempresa, cn);
+            OleDbDataReader reader3 = cmd3.ExecuteReader();
+
+            while (reader3.Read())
+            {
+                li_idempresa.Add(new SelectListItem { Text = reader3.GetString(1), Value = reader3.GetValue(1).ToString() });
+            }
+
+            ViewData["id_empresa"] = li_idempresa;
+
+
+            cmd3.Dispose();
+            reader2.Close();
+            reader3.Close();
+
             reader2.Close();
             cmd2.Dispose();
             cn.Close();
+
+
 
 
 
@@ -197,9 +220,59 @@ namespace PagosApp.Controllers
             return View(user);
            
         }
+        [Authorize]
+        public ActionResult Saveuser()
+        {
+
+
+
+            return View();
+        }
+
 
         
-       
+        [HttpPost]
+        public ActionResult Saveuser(Models.User2 user)
+        {
+
+            OleDbConnection cn = new OleDbConnection(cadena);
+            cn.Open();
+            string usuario = user.Usuario;
+            string nombre = user.Nombre;
+            string password = user.Password;
+            string rol = user.rol;
+            int id_rol = Convert.ToInt32(user.rol);
+            int id_empresa = user.id_empresa;
+
+            string query = "exec uspadduser '" + usuario + "','" + nombre + "','" + password + "'," + id_empresa + "," + id_rol;
+            OleDbCommand cmd = new OleDbCommand(query, cn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ViewData["Error"] = reader.GetString(0);
+            }
+
+
+
+
+
+            return View(user);
+
+        }
+
+        public ActionResult probar()
+        {
+            return View();
+        }
+
+       [HttpPost] ActionResult probar(Models.User2 user)
+        {
+            return View(user);
+        }
+
+
+
 
     }
 }

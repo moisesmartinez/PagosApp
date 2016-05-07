@@ -1,67 +1,106 @@
-﻿@model PagosApp.Models.User2
-@using System.Configuration
-@using System.Data.OleDb;
+﻿
+<script src="~/Content/assets/js/core/jquery.validate.js" type="text/javascript"></script>
+<script src="~/Content/assets/js/core/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+@model PagosApp.Models.User2
 @{
     ViewBag.Title = "Agregar Usuario";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<script src="~/Content/assets/js/core/jquery.validate.js" type="text/javascript"></script>
-<script src="~/Content/assets/js/core/jquery.validate.unobtrusive.js" type="text/javascript"></script>
 
-<h2>AddUser</h2>
 
+
+<script>
+function SubmitForm() {
+
+var r = confirm("Are you sure you want to submit?");
+  if (r == false) {
+    return false;
+  }
+}
+</script>
+
+<script type="text/javascript">
+		$(function() {
+		    // Switchery toggle
+		    var switchery = document.querySelector('.switch');
+		    var init = new Switchery(switchery, {color: '#03A9F4'});
+		});
+</script>
 
 <div class="panel panel-flat">
     <div class="panel-body">
-
-
-        @using (Html.BeginForm("Createuser", "User", FormMethod.Post))
-            {
-
-
-            @Html.ValidationSummary(true)
+        @using (Html.BeginForm("Saveuser","User", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
             <fieldset class="content-group">
+                @Html.ValidationSummary(true)
+
+                <legend class="text-bold">Agregar Usuario</legend>
+
                 <p>
                     <span class="label border-left-danger label-striped text-grey">@ViewData["Error"]</span>
                 </p>
 
+                
+
                 <div class="form-group">
-                 @Html.LabelFor(model => model.Usuario)
+                    @Html.LabelFor(model => model.Usuario, "Usuario: ", new { placeholder = "Usuario", @class = "control-label col-lg-2" })
                     <div class="col-lg-4">
-                        @Html.EditorFor(model => model.Usuario, new { placeholder = "Usuario" })
-                        </div>
-                        @Html.ValidationMessageFor(model => model.Usuario)
-                    
+                        @Html.TextBoxFor(model => model.Usuario, new { @class = "form-control" })
                     </div>
-
-
-                    <div>
-                        @Html.LabelFor(model => model.Nombre)
-                        @Html.EditorFor(model => model.Nombre, new { placeholder = "Nombre" })
-                        @Html.ValidationMessageFor(model => model.Nombre)
+                    @Html.ValidationMessageFor(model => model.Usuario)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre, "Nombre: ", new { placeholder = "Nombre", @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
                     </div>
+                    @Html.ValidationMessageFor(model => model.Nombre)
+                </div>
 
-                    <div>
-                        @Html.Label("Password: ")
-                        @Html.PasswordFor(model => model.Password, new { placeholder = "Password" })
-                        @Html.ValidationMessageFor(model => model.Password)
+                <div class="form-group">
+                    @Html.Label("Password: ", new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.PasswordFor(model => model.Password, new { placeholder = "Password", @class = "form-control" })
                     </div>
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
 
-                    <div>
-                        @Html.Label("Reescribir Password: ")
-                        @Html.PasswordFor(model => model.ConfirmPassword, new { placeholder = "Reescribir Password" })
-                        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                <div class="form-group">
+                    @Html.Label("Reescribir Password: ", new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.PasswordFor(model => model.ConfirmPassword, new { placeholder = "Reescribir Password", @class = "form-control" })
                     </div>
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                </div>
 
-                    <div>
-                        @Html.Label("Rol:")
-                        @Html.DropDownListFor(model => model.rol, ViewData["Rol"] as List<SelectListItem>, Model.id_rol)
+                
+
+                <div class="form-group">
+                    @Html.Label("Rol: ", new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.DropDownListFor(model => model.rol, ViewData["Rol"] as List<SelectListItem>, new { @class = "form-control" })
                     </div>
+                </div>
 
-</fieldset>
+                <div class="form-group">
+                    @Html.Label("Empresa: ", new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.DropDownListFor(model => model.id_empresa, ViewData["id_empresa"] as List<SelectListItem>, new { @class = "form-control" })
+                    </div>
+                </div>
 
-                }
 
+                <div>
+                    <button type="submit" class="btn btn-primary">Guardar </button>
+                </div>
+
+            </fieldset>
+        }
+    </div>
 </div>
-</div>
+
+
+
+
+

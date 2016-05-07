@@ -22,6 +22,18 @@ namespace PagosApp
             //Main page
 
             routes.MapRoute(
+              name: "User/probar",
+              url: "probar",
+              defaults: new { controller = "User", action = "probar" }
+              );
+
+            routes.MapRoute(
+               name: "User/Saveuser",
+               url: "Saveuser",
+               defaults: new { controller = "User", action = "Saveuser" }
+               );
+
+            routes.MapRoute(
               name: "User/EditUser",
               url: "EditUser/{userid}",
               defaults: new { controller = "User", action = "EditUser", userid = "" }
@@ -67,7 +79,8 @@ namespace PagosApp
                 );
 
             
-            
+
+
 
         }
     }
