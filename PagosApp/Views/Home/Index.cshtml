@@ -10,29 +10,38 @@
 
 		<!-- Quick stats boxes -->
 		<div class="row">
-			<div class="col-lg-4">
+            <div class="col-lg-4">
+                
+               @{ if (ViewBag.id_rol == 1)
+                   {
 
+                       	<!-- Usuarios de PagosApp -->
+                        <div class="panel bg-teal-400">
+                            <div class="panel-body">
+                                <div class="heading-elements">
+                                    <ul class="icons-list">
+                                        <li><a href="@Url.Action("AdministrarUsuarios", "Home")"><i class="icon-arrow-right8"></i></a></li>
+                                        
+                                    </ul>
+                                </div>
 
-				<!-- Usuarios de PagosApp -->
-				<div class="panel bg-teal-400">
-					<div class="panel-body">
-						<div class="heading-elements">
-							<ul class="icons-list">
-							    <li><a href="@Url.Action("AdministrarUsuarios", "Home")"><i class="icon-arrow-right8"></i></a></li>
-							</ul>
-						</div>
-						                	
-						<h3 class="no-margin">Gestión de Usuarios</h3>
-						<br />
-						<div class="text-muted text-size-small">Usuarios de PagosApp</div>
-					</div>
+                                <h3 class="no-margin">Gestión de Usuarios</h3>
+                                <br />
+                                <div class="text-muted text-size-small">Usuarios de PagosApp</div>
+                            </div>
 
-					<div class="container-fluid">
-						<div id="members-online"></div>
-					</div>
-				</div>
+                            <div class="container-fluid">
+                                <div id="members-online"></div>
+                            </div>
+                        </div>
 				<!-- /Usuarios de PagosApp -->
-			</div>
+                       }
+
+                   }
+
+
+
+            </div>
 
 			<div class="col-lg-4">
 				<!-- Clientes de Socios Caceenp -->
@@ -40,13 +49,13 @@
 					<div class="panel-body">
 						<div class="heading-elements">
 							<ul class="icons-list">
-							    <li><a href="#"><i class="icon-arrow-right8"></i></a></li>
+							    <li><a href="@Url.Action("Index", "Service")"><i class="icon-arrow-right8"></i></a></li>
 							</ul>
 						</div>
 
-						<h3 class="no-margin">Gestión de Clientes</h3>
+						<h3 class="no-margin">Gestión de Servicios</h3>
 						<br />
-						<div class="text-muted text-size-small">Clientes de los socios de Caceenp</div>
+						<div class="text-muted text-size-small">Servicios de la Empresa</div>
 					</div>
 
 					<div id="today-revenue"></div>

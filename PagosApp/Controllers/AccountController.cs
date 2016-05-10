@@ -10,35 +10,23 @@ namespace PagosApp.Controllers
 {
     public class AccountController : Controller
     {
-        PagosAppDBEntities myEntities = new PagosAppDBEntities();
+       // PagosAppDBEntities myEntities = new PagosAppDBEntities();
         string cadena = System.Configuration.ConfigurationManager.ConnectionStrings["LocalConnection"].ToString();
+        
         int id_rol;
 
         [AllowAnonymous]
         public ActionResult Login()
         {
-            if (Request.IsAuthenticated)
+
+         
+            if (Request.IsAuthenticated) 
             {
-                OleDbConnection cn = new OleDbConnection(cadena);
-                cn.Open();
-                string query = "exec get_rol_usuario " + Session["UserSession"];
-                OleDbCommand cmd = new OleDbCommand(query, cn);
-                OleDbDataReader reader = cmd.ExecuteReader();
 
-                if (reader.HasRows){
-
-                    while (reader.Read())
-                    {
-                        id_rol = reader.GetInt32(0);
-                    }
-
-                }
-
-                if (id_rol == 0)
-                {
+            
 
                     return RedirectToAction("Index", "Home");
-                }
+                
             }
             return View();
         }
@@ -71,12 +59,14 @@ namespace PagosApp.Controllers
                 int login = 0;
                 string nombre = "";
                 string id = "";
+                int id_rol = -1;
 
                 while (reader.Read())
                 {
                     login = reader.GetInt32(0);
                     nombre = reader.GetValue(2).ToString();
                     id = reader.GetValue(1).ToString();
+                    id_rol = reader.GetInt32(3);
                 }
 
 
@@ -87,7 +77,7 @@ namespace PagosApp.Controllers
                     //guardar informacion del usuario en la Sesion del navegador
                     FormsAuthentication.SetAuthCookie(nombre, mLogin.RememberMe);
                     Session["UserSession"] = id;
-                    
+                    Session["Rol"] = id_rol;
 
                     //Luego de guardar informacion en la sesion, redireccionar al menu
                     return RedirectToAction("Index", "Home");    

@@ -21,34 +21,21 @@ namespace PagosApp
 
             //Main page
             routes.MapRoute(
-        name: "Rol/UpdateRol",
-        url: "UpdateRol",
-        defaults: new { controller = "Rol", action = "Updaterol"}
-        );
-
-            routes.MapRoute(
-          name: "Rol/EditRol",
-          url: "EditRol/{id_rol}",
-          defaults: new { controller = "Rol", action = "Editrol", id_rol = "" }
-          );
-
-            routes.MapRoute(
-              name: "Home/Roles",
-              url: "AdminRoles",
-              defaults: new { controller = "Home", action = "AdministrarRoles" }
-          );
-
-            routes.MapRoute(
-              name: "User/probar",
-              url: "probar",
-              defaults: new { controller = "User", action = "probar" }
-              );
-
-            routes.MapRoute(
                name: "User/Saveuser",
                url: "Saveuser",
                defaults: new { controller = "User", action = "Saveuser" }
                );
+
+            routes.MapRoute(
+                name: "Rol/editRol",
+                url: "editrol/{id_rol}",
+                defaults: new { controller = "Rol", action = "EditRol" }
+                );
+
+            routes.MapRoute(
+                name: "Rol/SaveUser",
+                url: "UpdateRol",
+                defaults: new { controller = "Rol", action = "UpdateRol" });
 
             routes.MapRoute(
               name: "User/EditUser",
@@ -95,7 +82,25 @@ namespace PagosApp
                 defaults: new { controller = "User", action = "Updateuser" }
                 );
 
-            
+            routes.MapRoute(
+               name: "Service/Index",
+               url: "Services",
+               defaults: new { controller = "Service", action = "Index" }
+           );
+
+            routes.MapRoute(
+              name: "Service/Edit",
+              url: "EditService/{ServiceId}",
+              defaults: new { controller = "Service", action = "EditService", ServiceId = "" }
+            );
+
+            routes.MapRoute(
+                name: "Service/Add",
+                url: "AddService",
+                defaults: new { controller = "Service", action = "AddService" }
+            );
+
+
 
 
 

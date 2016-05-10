@@ -1,0 +1,39 @@
+﻿@model PagosApp.Models.ServicesList
+@{
+    ViewBag.Title = "Gestion de Servicios";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="panel panel-flat">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Descripcion</th>
+                    <th>Empresa</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var servicio in Model.ListOfServices)
+                {
+                    <tr>
+                        <td>@servicio.id_servicio</td>
+                        <td>@servicio.Descripcion</td>
+                        <td>@servicio.empresa</td>
+                        @{ if (ViewBag.id_rol < 3)
+                            {
+                        <td>@Html.ActionLink("Editar", "EditService", "Service", new { ServiceId = servicio.id_servicio }, null)</td>
+                            }
+                            }
+                    </tr>
+                            }
+            </tbody>
+        </table>
+    </div>
+</div>
+@{ if (ViewBag.id_rol < 3)
+    {
+<input type="button" class="btn btn-primary" value="Crear Servicio" onclick="location.href='@Url.Action("AddService", "Service")'" />
+        }
+    }

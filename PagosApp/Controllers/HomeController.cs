@@ -34,7 +34,7 @@ namespace PagosApp.Controllers
                     //  PagosApp.Usuario user = myEntities.Usuarios.Where(userLinq => userLinq.id_usuario == (userId)).FirstOrDefault();
 
 
-
+                    
 
 
 
@@ -54,6 +54,24 @@ namespace PagosApp.Controllers
 
 
                     reader.Close();
+                    int id_rol;
+                   
+
+                    string query2 = "exec get_rol_usuario " + Session["UserSession"];
+                    OleDbCommand cmd2 = new OleDbCommand(query2, cn);
+                    OleDbDataReader reader2 = cmd2.ExecuteReader();
+
+                    if (reader2.HasRows)
+                    {
+
+                        while (reader2.Read())
+                        {
+                            id_rol = reader2.GetInt32(0);
+                            ViewBag.id_rol = id_rol;
+                        }
+
+                    }
+                    
                     cn.Close();
 
 
@@ -86,7 +104,7 @@ namespace PagosApp.Controllers
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles = "1")]
         public ActionResult AdministrarUsuarios()
         {
 

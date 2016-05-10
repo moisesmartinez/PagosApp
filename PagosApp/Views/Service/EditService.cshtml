@@ -1,0 +1,39 @@
+﻿@model PagosApp.Models.Service
+
+@{
+    ViewBag.Title = "Editar Servicio";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="panel panel-flat">
+    <div class="panel-body">
+        @using (Html.BeginForm("EditService", "Service", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <fieldset class="content-group">
+                @Html.ValidationSummary(true)
+
+                <legend class="text-bold">Editar Servicio</legend>
+
+                <p>
+                    <span class="label border-left-danger label-striped text-grey">@ViewData["Error"]</span>
+                </p>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Descripcion, "Descripcion:", new { @class = "control-label col-lg-1" })
+                    <div class="col-lg-4">
+                        @Html.TextBoxFor(model => model.Descripcion, new { @Value = Model.Descripcion, @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Descripcion)
+                </div>
+
+                @Html.HiddenFor(model => model.id_servicio)
+
+                <div>
+                    <button type="submit" class="btn btn-primary" name="SubmitButton" value="Actualizar">Actualizar </button>
+                    <button type="submit" class="btn btn-danger" name="SubmitButton" value="Eliminar">Eliminar </button>
+                </div>
+
+            </fieldset>
+        }
+    </div>
+</div>
