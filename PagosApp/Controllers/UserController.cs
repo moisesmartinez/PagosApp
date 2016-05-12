@@ -21,7 +21,7 @@ namespace PagosApp.Controllers
 
             string usuario = Server.HtmlEncode(userid);
             List<SelectListItem> li = new List<SelectListItem>();
-            
+            List<SelectListItem> empresas = new List<SelectListItem>();
 
             OleDbConnection cn = new OleDbConnection(cadena);
             cn.Open();
@@ -29,9 +29,14 @@ namespace PagosApp.Controllers
             var model = new PagosApp.Models.User();
             OleDbCommand cmd = new OleDbCommand(query, cn);
             OleDbDataReader reader = cmd.ExecuteReader();
-            string querylist = "select * from roles";
+            string querylist = "exec getroles_combobox '" + usuario + "'";
             OleDbCommand cmd2 = new OleDbCommand(querylist, cn);
             OleDbDataReader reader2 = cmd2.ExecuteReader();
+            string querylistempresas = "exec getempresas_combobox '" + usuario + "'";
+            OleDbCommand cmd3 = new OleDbCommand(querylistempresas, cn);
+            OleDbDataReader reader3 = cmd3.ExecuteReader();
+
+
 
             if (reader2.HasRows)
             {
@@ -42,6 +47,16 @@ namespace PagosApp.Controllers
 
                 ViewData["Rol"] = li;
             }
+
+            if (reader3.HasRows)
+            {
+                while (reader3.Read())
+                {
+                    empresas.Add(new SelectListItem { Text = reader3.GetString(1), Value = reader3.GetValue(0).ToString() });
+                }
+            }
+
+            ViewData["Empresa"] = empresas;
 
          
 
@@ -163,21 +178,25 @@ namespace PagosApp.Controllers
             string activo = "";
                 if (deleted)
             {
-                activo = "0";
+                activo = "1";
             }
             else
             {
-                activo = "1";
+                activo = "0";
             }
             int id_rol = Convert.ToInt32(user.rol);
             
             ViewData["UserName"] = name;
-            string query = "exec sp_editusuario '" + user.Usuario + "','" + name + "','" + password + "'," + activo + "," + id_rol;
+            string query = "exec sp_editusuario '" + user.Usuario + "','" + name + "','" + password + "'," + activo + "," + id_rol + "," + user.id_empresa;
             List<SelectListItem> li = new List<SelectListItem>();
+            List<SelectListItem> empresas = new List<SelectListItem>();
             ViewData["error"] = "Customer Data Update successfully";
             string querylist = "select * from roles";
             OleDbCommand cmd2 = new OleDbCommand(querylist, cn);
             OleDbDataReader reader2 = cmd2.ExecuteReader();
+            string querylistempresas = "exec getempresas_combobox '" + user.Usuario + "'";
+            OleDbCommand cmd3 = new OleDbCommand(querylistempresas, cn);
+            OleDbDataReader reader3 = cmd3.ExecuteReader();
             int result = 0;
 
             OleDbCommand cmd = new OleDbCommand(query, cn);
@@ -191,7 +210,17 @@ namespace PagosApp.Controllers
                 }
             }
 
-            if(result == 1)
+            if (reader3.HasRows)
+            {
+                while (reader3.Read())
+                {
+                    empresas.Add(new SelectListItem { Text = reader3.GetString(1), Value = reader3.GetValue(0).ToString() });
+                }
+            }
+
+            ViewData["Empresa"] = empresas;
+
+            if (result == 1)
             {
                 ViewData["error"] = "Usuario actualizado Satisfactoriamente";
             }

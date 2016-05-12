@@ -209,7 +209,7 @@ namespace PagosApp.Controllers
                 {
                     //ACTUALIZAR EL SERVICIO
                     //int userId = 1;
-                    query = string.Format("UPDATE Servicios SET descripcion = '{0}'", servicio.Descripcion);
+                    query = string.Format("UPDATE Servicios SET descripcion = '{0}' where id_Servicio = {1}", servicio.Descripcion,servicio.id_servicio);
                 }
                 else if (servicio.SubmitButton == "Eliminar")
                 {

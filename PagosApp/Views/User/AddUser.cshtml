@@ -20,81 +20,85 @@ var r = confirm("Are you sure you want to submit?");
 }
 </script>
 
+
+
+
 <div class="panel panel-flat">
-    <div class="panel panel-flat">
+    <div class="panel-body">
 
 
-@using (Html.BeginForm("Saveuser", "User", FormMethod.Post,new { @class = "form-horizontal" }))
-{
-    <fieldset class="content-group">
-        <legend class="text-bold">Agregar Usuario</legend>
+        @using (Html.BeginForm("Saveuser", "User", FormMethod.Post,new { @class = "form-horizontal" }))
+        {
+
+            <fieldset class="content-group">
+                <legend class="text-bold">Agregar Usuario</legend>
 
 
-        <p>
-            <span class="label border-left-danger label-striped text-grey">@ViewData["Error"]</span>
-        </p>
+                <p>
+                    <span class="label border-left-danger label-striped text-grey">@ViewData["Error"]</span>
+                </p>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Usuario, "Usuario:", new { @class = "control-label col-lg-2" })
-            <div class="col-lg-4">
-                @Html.TextBoxFor(model => model.Usuario, new { @class = "form-control" })
-            </div>
-            @Html.ValidationMessageFor(model => model.Usuario)
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Usuario, "Usuario:", new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.TextBoxFor(model => model.Usuario, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Usuario)
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nombre, "Nombre: ", new { @class = "control-label col-lg-2" })
-            <div class="col-lg-4">
-                @Html.TextBoxFor(model => model.Nombre, new { placeholder = "Nombre", @class = "form-control" })
-            </div>
-            @Html.ValidationMessageFor(model => model.Nombre)
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre, "Nombre: ", new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.TextBoxFor(model => model.Nombre, new { placeholder = "Nombre", @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Nombre)
+                </div>
 
-        <div class="form-group">
-            @Html.Label("Password: ", new { @class = "control-label col-lg-2" })
-            <div class="col-lg-4">
-                @Html.PasswordFor(model => model.Password, new { placeholder = "Password", @class = "form-control" })
-            </div>
-            @Html.ValidationMessageFor(model => model.Password)
-        </div>
+                <div class="form-group">
+                    @Html.Label("Password: ", new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.PasswordFor(model => model.Password, new { placeholder = "Password", @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
 
-        <div class="form-group">
-            @Html.Label("Reescribir Password: ", new { @class = "control-label col-lg-2" })
-            <div class="col-lg-4">
-                @Html.PasswordFor(model => model.ConfirmPassword, new { placeholder = "Reescribir Password", @class = "form-control" })
-            </div>
-            @Html.ValidationMessageFor(model => model.ConfirmPassword)
-        </div>
+                <div class="form-group">
+                    @Html.Label("Reescribir Password: ", new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.PasswordFor(model => model.ConfirmPassword, new { placeholder = "Reescribir Password", @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                </div>
 
-        <div class="form-group">
-            @Html.Label("Rol:", new { @class = "control-label col-lg-2" })
-            <div class="col-lg-4">
-                @Html.DropDownListFor(model => model.rol, ViewData["Rol"] as List<SelectListItem>, new { @class = "form-control" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.Label("Rol:", new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.DropDownListFor(model => model.rol, ViewData["Rol"] as List<SelectListItem>, new { @class = "form-control" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.Label("Empresa: ", new { @class = "control-label col-lg-2" })
-            <div class="col-lg-4">
-                @Html.DropDownListFor(model => model.id_empresa, ViewData["id_empresa"] as List<SelectListItem>, new { @class = "form-control" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.Label("Empresa: ", new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-4">
+                        @Html.DropDownListFor(model => model.id_empresa, ViewData["id_empresa"] as List<SelectListItem>, new { @class = "form-control" })
+                    </div>
+                </div>
 
 
      
 
 
-        <div>
-            <button type="submit">Agregar Usuario </button>
-        </div>
+                <div>
+                    <button type="submit">Agregar Usuario </button>
+                </div>
 
-    </fieldset>
-
-
-}
+            </fieldset>
 
 
+        }
 
-</div>
+
+
     </div>
+</div>
 

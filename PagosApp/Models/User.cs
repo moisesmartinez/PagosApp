@@ -23,6 +23,7 @@ namespace PagosApp.Models
 
        
         [DisplayName("Password")]
+        [StringLength(10, ErrorMessage = "Debe contener al menos 5 caracteres", MinimumLength = 5)]
         public string Password { get; set; }
 
 
@@ -30,5 +31,6 @@ namespace PagosApp.Models
         [Compare("Password", ErrorMessage = "Passwords deben de coincidir")]
         [DisplayName("ConfirmPassword")]
         public string ConfirmPassword { get; set; }
+        public int id_empresa { get; set; }
     }
 }

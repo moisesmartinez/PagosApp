@@ -60,6 +60,7 @@ namespace PagosApp.Controllers
                 string nombre = "";
                 string id = "";
                 int id_rol = -1;
+                int deleted = 0;
 
                 while (reader.Read())
                 {
@@ -67,12 +68,13 @@ namespace PagosApp.Controllers
                     nombre = reader.GetValue(2).ToString();
                     id = reader.GetValue(1).ToString();
                     id_rol = reader.GetInt32(3);
+                    deleted = reader.GetInt32(4);
                 }
 
 
 
 
-                if (login == 0)
+                if ((login == 0) && (deleted == 0))
                 {
                     //guardar informacion del usuario en la Sesion del navegador
                     FormsAuthentication.SetAuthCookie(nombre, mLogin.RememberMe);
@@ -85,7 +87,14 @@ namespace PagosApp.Controllers
                 }
                 else
                 {
-                    ViewData["Error"] = " Usuario/Contraseña incorrectos!";
+                    if (deleted == 0)
+                    {
+                        ViewData["Error"] = " Usuario/Contraseña incorrectos!";
+                    }
+                    else
+                    {
+                        ViewData["Error"] = " Usuario no Activo";
+                    }
                 }
             }
             catch (Exception ex)

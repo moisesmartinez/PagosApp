@@ -24,13 +24,14 @@ namespace PagosApp.Models
         public bool Estado { get; set; }
 
         [Required(ErrorMessage = "Contrasena Requerida", AllowEmptyStrings = false)]
+        [StringLength(10, ErrorMessage = "Debe contener al menos 5 caracteres", MinimumLength = 5)]
         [DisplayName("Password")]
         public string Password { get; set; }
 
         public int id_empresa { get; set; }
 
 
-        [Required(ErrorMessage = "Confirmar Cotrasena Requerida", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Confirmar Contrasena Requerida", AllowEmptyStrings = false)]
         [Compare("Password", ErrorMessage = "Passwords deben de coincidir")]
         [DisplayName("ConfirmPassword")]
         public string ConfirmPassword { get; set; }
