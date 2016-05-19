@@ -1,0 +1,33 @@
+﻿@model PagosApp.Models.ClientesList
+
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>Registros Recibidos = @ViewBag.recibidos</p>
+<p>Resgistros Cargados = @ViewBag.cargados</p>
+<p>Registros No Cargados = @ViewBag.nocargados</p>
+
+<div class="panel panel-flat">
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Codigo de Cliente</th>
+                <th>Descripcion de error</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in Model.ListOfClientes)
+            {
+                <tr>
+                    <td>@cliente.id_cliente</td>
+                    <td>@cliente.error</td>
+                </tr>
+                        }
+        </tbody>
+    </table>
+</div>
+</div>

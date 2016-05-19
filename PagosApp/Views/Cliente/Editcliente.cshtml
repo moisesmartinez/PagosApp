@@ -1,0 +1,94 @@
+﻿@model PagosApp.Models.Cliente
+
+<script src="~/Content/assets/js/core/jquery.validate.js" type="text/javascript"></script>
+<script src="~/Content/assets/js/core/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+
+
+@{
+    ViewBag.Title = "Editar Cliente";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Editcliente</h2>
+
+<style>
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+
+
+<div id="home" class="tab-pane fade in active">
+    <div class="panel panel-flat">
+        <div class="panel-body">
+            @using (Html.BeginForm("Editcliente", "Cliente", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                <fieldset class="content-group">
+                    @Html.ValidationSummary(true)
+
+                    <legend class="text-bold">Editar Cliente</legend>
+
+                    <p>
+                        <span class="label border-left-danger label-striped text-grey">@ViewData["Error"]</span>
+                    </p>
+
+                    @Html.TextBoxFor(model => model.id_empresa, new { style = "display:none;", @Value = Model.id_empresa })
+                    @Html.TextBoxFor(model => model.cod_cliente, new { style = "display:none;",@Value = Model.cod_cliente})
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.id_cliente, "Codigo de Cliente: ", new { placeholder = "Codigo de Cliente", @class = "control-label col-lg-2" })
+                        <div class="col-lg-4">
+                            @Html.TextBoxFor(model => model.id_cliente, new { @class = "form-control", @Value = Model.id_cliente })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.id_cliente)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.nombre, "Nombre: ", new { placeholder = "Nombre", @class = "control-label col-lg-2" })
+                        <div class="col-lg-4">
+                            @Html.TextBoxFor(model => model.nombre, new { @class = "form-control", @Value = Model.nombre })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.nombre)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.direccion, "Direccion: ", new { placeholder = "Direccion", @class = "control-label col-lg-2" })
+                        <div class="col-lg-4">
+                            @Html.TextBoxFor(model => model.direccion, new { @class = "form-control", @Value = Model.direccion })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.direccion)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.telefono, "Telefono: ", new { placeholder = "Telefono", @class = "control-label col-lg-2" })
+                        <div class="col-lg-4">
+                            @Html.TextBoxFor(model => model.telefono, new { @class = "form-control", @Value = Model.telefono })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.telefono)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Servicio: ", new { @class = "control-label col-lg-2" })
+                        <div class="col-lg-4">
+                            @Html.DropDownListFor(model => model.id_servicio, ViewData["Servicios"] as List<SelectListItem>, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <button type="submit" class="btn btn-primary">Editar </button>
+                    </div>
+
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+

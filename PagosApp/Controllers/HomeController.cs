@@ -177,6 +177,42 @@ namespace PagosApp.Controllers
             return View(dt);
         }
 
+        [Authorize]
+        public ActionResult AdministrarClientes()
+
+        {
+
+            OleDbConnection cn = new OleDbConnection(cadena);
+            cn.Open();
+            string query = "exec list_clientes " + Session["UserSession"] ;
+            
+            OleDbCommand cmd = new OleDbCommand(query, cn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            reader.Close();
+
+
+            if (Session["UserSession"] != null)
+            {
+                string query2 = "select nombre from usuarios where id =" + Session["UserSession"];
+                OleDbCommand cmd2 = new OleDbCommand(query2, cn);
+                reader = cmd2.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    ViewData["Username"] = reader.GetValue(0).ToString();
+                }
+
+
+            }
+
+
+
+            return View(dt);
+        }
+
         
     }
 }

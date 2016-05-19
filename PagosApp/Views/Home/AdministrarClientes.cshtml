@@ -1,0 +1,69 @@
+﻿@model System.Data.DataTable
+@using System.Data;
+
+@{
+    ViewBag.Title = "AdministrarClientes";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<style>
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+
+<script src="~/Content/assets/js/core/jquery.dataTables.min.js" type="text/javascript" ></script>
+
+        @{System.Data.DataRow dtarow = null;}
+
+
+
+<!-- Basic table -->
+<div class="panel panel-flat">
+
+
+    <div class="table-responsive">
+        <table class="table table-bordered" id="table">
+            <thead>
+                <tr>
+                    @foreach (System.Data.DataColumn col in Model.Columns)
+                    {
+                        <th>@col.ColumnName </th>
+
+                    }
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (System.Data.DataRow row in Model.Rows)
+                {
+                    { dtarow = row; }
+                    <tr>
+                        @foreach (DataColumn col in Model.Columns)
+                        {
+                            <td>
+                                @row[col.ColumnName]
+
+                        </td>
+
+                        }
+                        <td>@Html.ActionLink("Editar", "Editcliente", "Cliente", new { id_cliente = dtarow[0] }, null)</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<!-- /basic table -->
+<input type="button" class="btn btn-primary" value="Crear Nuevo" onclick="location.href='@Url.Action("Addcliente", "Cliente")'" />

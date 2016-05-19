@@ -20,6 +20,38 @@ namespace PagosApp
             //);
 
             //Main page
+
+            routes.MapRoute(
+                name: "Cliente/upload",
+                url: "upload",
+                defaults: new { controller = "Cliente", action = "Upload" }
+                );
+
+            routes.MapRoute(
+               name: "Cliente/download",
+               url: "download/{ImageName}",
+               defaults: new { controller = "Cliente", action = "download" }
+                );
+
+            routes.MapRoute(
+                name: "Cliente/Editcliente",
+                url: "editcliente/{id_cliente}",
+                defaults: new { controller = "Cliente", action = "Editcliente" }
+                );
+
+            routes.MapRoute(
+                name: "Cliente/Addcliente",
+                url: "AddCliente",
+                defaults: new { controller = "Cliente", action = "Addcliente"}
+                );
+
+            routes.MapRoute(
+                name: "Home/Administrarclientes",
+                url: "Administrarclientes",
+                defaults: new { controller = "Home", action = "AdministrarClientes"}
+                );
+
+
             routes.MapRoute(
                name: "User/Saveuser",
                url: "Saveuser",

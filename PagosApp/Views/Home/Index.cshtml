@@ -10,10 +10,11 @@
 
 		<!-- Quick stats boxes -->
 		<div class="row">
+@{ if (ViewBag.id_rol == 1)
+    {
             <div class="col-lg-4">
                 
-               @{ if (ViewBag.id_rol == 1)
-                   {
+            
 
                        	<!-- Usuarios de PagosApp -->
                         <div class="panel bg-teal-400">
@@ -35,13 +36,14 @@
                             </div>
                         </div>
 				<!-- /Usuarios de PagosApp -->
-                       }
-
-                   }
+                    
 
 
 
             </div>
+    }
+
+}
 
 			<div class="col-lg-4">
 				<!-- Clientes de Socios Caceenp -->
@@ -63,6 +65,27 @@
 				<!-- /Clientes de Socios Caceenp -->
 			</div>
 
+
+
+            <div class="col-lg-4">
+                <!-- Clientes de Socios Caceenp -->
+                <div class="panel bg-brown">
+                    <div class="panel-body">
+                        <div class="heading-elements">
+                            <ul class="icons-list">
+                                <li><a href="@Url.Action("AdministrarClientes","Home")"><i class="icon-arrow-right8"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <h3 class="no-margin">Gestión de Clientes</h3>
+                        <br />
+                        <div class="text-muted text-size-small">Clientes de la Empresa</div>
+                    </div>
+
+                    <div id="today-revenue"></div>
+                </div>
+                <!-- /Clientes de Socios Caceenp -->
+            </div>
 
 		</div>
 		<!-- /quick stats boxes -->
